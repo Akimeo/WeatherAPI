@@ -1,24 +1,25 @@
-# README
+# Weather API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Из-за того, что количество запросов по бесплатному api ключу AccuWeather
+действительно сильно ограничено, было принято решение пойти на несколько
+компромиссов. Некоторые из них, если я правильно понял, предполагались
+условием тестового задания.
 
-Things you may want to cover:
+Некоторые принципы работы приложения:
 
-* Ruby version
+* app/services/pull_weather_service.rb обрабатывает данные о погоде, которые
+присылает lib/clients/accu_weather_client.rb, и сохраняет их в базу
 
-* System dependencies
+* Все данные приходят для Москвы, время тоже московское
 
-* Configuration
+* Все время сохраняется с точностью до часа с округлением вниз
 
-* Database creation
+* Таким образом, когда приложение запускается впервые, в базу сохраняются
+данные за последние 24 часа
 
-* Database initialization
+* Далее каждый час подгружается информация о текущем времени
 
-* How to run the test suite
+* Наш api обращается только к этим данным
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Соответственно, все ответы тоже предоставляются с точностью до часа с
+округлением вниз
