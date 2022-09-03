@@ -3,7 +3,7 @@
 class PullWeatherJob < ApplicationJob
   queue_as :urgent
 
-  def perform(initial)
+  def perform(initial: false)
     PullWeatherService.new.call(initial)
   end
 end
