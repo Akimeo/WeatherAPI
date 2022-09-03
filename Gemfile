@@ -30,9 +30,12 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'delayed_job_active_record'
+gem 'faraday'
 gem 'grape'
 gem 'grape-active_model_serializers'
 gem 'grape-swagger'
+gem 'rufus-scheduler'
 
 gem 'net-smtp'
 
