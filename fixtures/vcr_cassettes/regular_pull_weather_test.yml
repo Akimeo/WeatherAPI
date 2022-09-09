@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://dataservice.accuweather.com/currentconditions/v1/294021?apikey=<AW_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.5.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Sep 2022 16:52:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '489'
+      Connection:
+      - keep-alive
+      Server:
+      - Microsoft-IIS/10.0
+      Ratelimit-Limit:
+      - '50'
+      Ratelimit-Remaining:
+      - '29'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Headers:
+      - origin, x-requested-with, accept
+      Access-Control-Max-Age:
+      - '3628800'
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - public, max-age=468
+      Expires:
+      - Fri, 09 Sep 2022 17:00:11 GMT
+      Akamai-Grn:
+      - 0.0c68dc17.1662742343.f8ea3ee0
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - deflate;q=0.6
+      - gzip;q=1.0
+      - identity;q=0.3
+      Host:
+      - api.accuweather.com
+      User-Agent:
+      - Faraday v2.5.2
+      X-Forwarded-For:
+      - 176.57.76.157
+      X-Forwarded-Port:
+      - '80'
+      X-Forwarded-Proto:
+      - http
+    body:
+      encoding: UTF-8
+      string: '[{"LocalObservationDateTime":"2022-09-09T19:48:00+03:00","EpochTime":1662742080,"WeatherText":"Cloudy","WeatherIcon":7,"HasPrecipitation":false,"PrecipitationType":null,"IsDayTime":false,"Temperature":{"Metric":{"Value":9.4,"Unit":"C","UnitType":17},"Imperial":{"Value":49.0,"Unit":"F","UnitType":18}},"MobileLink":"http://www.accuweather.com/en/ru/moscow/294021/current-weather/294021?lang=en-us","Link":"http://www.accuweather.com/en/ru/moscow/294021/current-weather/294021?lang=en-us"}]'
+  recorded_at: Fri, 09 Sep 2022 16:52:24 GMT
+recorded_with: VCR 6.1.0

@@ -7,6 +7,8 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'webmock/rspec'
+require 'vcr'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -71,4 +73,11 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.ignore_hosts '127.0.0.1', 'localhost'
+  c.hook_into :webmock
+  c.filter_sensitive_data('<AW_API_KEY>') { ENV['AW_API_KEY'] }
 end
