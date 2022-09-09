@@ -5,19 +5,18 @@ class AccuWeatherClient
   CC_ENDPOINT = 'currentconditions/v1/'
   MOSCOW_LOCATION_KEY = '294021'
   HISTORICAL_STRING = '/historical/24'
-  # Стоило бы вынести в .env
-  API_KEY = 'ip8RoJLwRSFTD5RnOevhUZh1bzCevpmC'
 
   def initialize
     @http_client = setup_http_client
   end
 
-  def pull_data(initial)
+  def pull_data(initial: false)
     request_string = CC_ENDPOINT + MOSCOW_LOCATION_KEY
     request_string += HISTORICAL_STRING if initial
-    @http_client.get(request_string) do |request|
-      request.params['apikey'] = API_KEY
+    response = @http_client.get(request_string) do |request|
+      request.params['apikey'] = ENV['AW_API_KEY']
     end
+    JSON.parse(response.body)
   end
 
   private

@@ -42,6 +42,7 @@ gem 'net-smtp'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 5.1.2'
 end
@@ -63,7 +64,9 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'vcr'
   gem 'webdrivers'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
